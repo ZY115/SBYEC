@@ -30,3 +30,38 @@ All development work builds upon the **existing WordPress database, content, and
 | **AI Chatbot (optional)** | Provides automated FAQ responses. |
 | **Yoast SEO** | SEO optimization for site visibility. |
 
+## Sprint 1 – Preparation Phase
+
+### Completed Tasks
+- Collected client requirements.  
+- Created **User Stories**, **Use Cases**, and **UML diagrams**.  
+- Evaluated the existing WordPress-based system.  
+- Learned about the frameworks and plugins we’ll use.  
+- Started the first small round of development.
+
+
+## Sprint 1 – Deliverables
+
+### Implemented Features
+- Added **individual course detail pages**.  
+- Improved **page linking and navigation** across the site.  
+- Added a **calendar** section.  
+- Added a **schedule/timetable** section.  
+- Added a **“Book Lesson”** button (redirects to contact page).  
+- Added a **chatbot** for basic user interaction.
+
+
+## Sprint 2 – Upcoming Plans
+- Fully implement the **calendar with booking and payment** features.  
+- **Update team information** based on client feedback.  
+- Develop and deploy a **custom chatbot** tailored to SBYEC’s needs.
+
+
+## Team Members
+- **Yuhang Zhang** – Team Leader  
+- **Richard Shen** – Developer
+
+---
+
+## Notes
+This project is built on WordPress and focuses on improving usability, accessibility, and ease of maintenance for non-technical staff.
