@@ -59,6 +59,10 @@ All development work builds upon the **existing WordPress database, content, and
 - [Meeting Minutes](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/Meeting%20Minutes.pdf)
 - [Project Description Team 19](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/Project_Description_team19.pdf)
 
+## Sprint 1 Demo
+You can watch our Sprint 1 presentation here:  
+[Watch on YouTube](https://youtu.be/OGq5JewZOqw)
+
 ## Sprint 2 – Upcoming Plans
 - Fully implement the **calendar with booking and payment** features.  
 - **Update team information** based on client feedback.  
@@ -73,6 +77,7 @@ All development work builds upon the **existing WordPress database, content, and
 
 ## Notes
 This project is built on WordPress and focuses on improving usability, accessibility, and ease of maintenance for non-technical staff.
+
 
 
 
