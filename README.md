@@ -1,6 +1,7 @@
 # SBYEC Website
 
-![SBYEC](https://raw.github.com/ZY115/SBYEC/blob/main/resources/1.42.16.png)
+![SBYEC](https://raw.githubusercontent.com/ZY115/SBYEC/main/resources/1.42.16.png)
+
 
 ## Project Summary
 
@@ -72,6 +73,7 @@ All development work builds upon the **existing WordPress database, content, and
 
 ## Notes
 This project is built on WordPress and focuses on improving usability, accessibility, and ease of maintenance for non-technical staff.
+
 
 
 
