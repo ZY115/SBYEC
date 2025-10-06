@@ -3,90 +3,88 @@
 ## Project Summary
 
 ### One-sentence description of the project
-A user-friendly and maintainable WordPress-based website enhancement for the Silver Buckle Youth Equestrian Center (SBYEC), improving event management, course pages, and social media integration.
+An enhancement and continuation of the existing Silver Buckle Youth Equestrian Center (SBYEC) WordPress website, improving event management, usability, and maintainability for non-technical staff.
 
 ### Additional information about the project
-The **SBYEC Website Enhancement Project** aims to upgrade and complete the existing SBYEC WordPress site developed by a prior student team.  
-Our focus is to improve usability, strengthen maintainability for non-technical staff, and expand missing functionalities such as:
-- A **readable, staff-driven event calendar**
-- Integrated **ticket purchases via Zeffy**
-- Structured **lesson subpages** for Rising Stars, Private Lessons, and Group Lessons
-- Improved **Facebook feed embedding** and **sponsor page management**
-- **AI chatbot** for answering common questions
+This project continues the work of a previous WSU student team.  
+The **SBYEC Website Enhancement Project** focuses on completing unfinished features, optimizing existing modules, and ensuring that SBYEC staff can independently manage and update their website.  
 
-By project completion, the website will support a seamless user experience and efficient staff operations, reflecting SBYEC’s professionalism and community spirit.
+Key goals include:
+- Restoring and upgrading the **event calendar** with Zeffy integration.  
+- Completing the **lesson subpages** (Rising Stars, Private Lessons, Group Lessons).  
+- Simplifying **staff content updates** via WordPress backend.  
+- Improving **social media embedding**, **accessibility**, and **security (HTTPS)**.  
+
+All development work builds upon the **existing WordPress database, content, and structure** inherited from the previous project team.
 
 ---
 
 ## Installation
 
 ### Prerequisites
-Before installation, ensure the following tools are installed:
+Before proceeding, make sure you have the following installed:
 - **Git** ≥ 2.30  
-- **Docker Desktop** ≥ 4.0 (recommended for local deployment)  
-- **Node.js** ≥ 18.x (optional, for frontend preview)
-- **WordPress** ≥ 6.5 (running locally or on a staging server)
-- **MySQL** ≥ 8.0
-- **Zeffy account** (for event ticket integration)
-- **Facebook Page Plugin access**
-
-If you are testing locally, we recommend using:
-- **XAMPP** (Windows/Mac) or **LocalWP** (cross-platform) for WordPress setup.
+- **WordPress** ≥ 6.5 (either local or hosted)  
+- **PHP** ≥ 8.0  
+- **MySQL** ≥ 8.0  
+- **Docker Desktop** (optional, for local deployment)  
+- **XAMPP** or **LocalWP** (for local environment)
+- **Zeffy account** and **Facebook Page access** (for event and feed integration)
 
 ---
 
 ### Add-ons
-The project leverages WordPress plugins and tools instead of Ruby gems:
+Since the system runs on WordPress, these plugins (not Ruby gems) are essential:
 
-| Add-on | Purpose |
-|--------|----------|
-| **The Events Calendar** | Manages and displays calendar events with clickable detail pages. |
-| **Zeffy Integration** | Provides donation and ticket-purchase links for nonprofit events. |
-| **Facebook Page Plugin** | Embeds the SBYEC Facebook feed directly on the homepage. |
-| **WPForms** | Enables the “Contact Us” form and newsletter signups. |
-| **Yoast SEO** | Enhances visibility and metadata optimization. |
-| **AI Chatbot (optional)** | Provides automated responses to common questions. |
+| Plugin / Add-on | Purpose |
+|------------------|----------|
+| **The Events Calendar** | Displays and manages event calendar with detail links. |
+| **Zeffy Integration** | Handles nonprofit ticketing and donations. |
+| **Facebook Page Plugin** | Embeds live Facebook feed on homepage. |
+| **WPForms** | Manages contact form submissions. |
+| **AI Chatbot (optional)** | Provides automated FAQ responses. |
+| **Yoast SEO** | SEO optimization for site visibility. |
 
 ---
 
-### Installation Steps
+### Installation Steps 
 
-You can deploy the project locally or on a WordPress staging site.
+Since this project inherits the **existing SBYEC WordPress site and database**, you only need to restore and connect to the previous environment.
 
-#### Option 1: Local WordPress Setup (via XAMPP or LocalWP)
 ```bash
-# 1. Clone this repository
+# 1. Clone this repository (code continuation)
 git clone https://github.com/wsu-team21/SBYEC-Website-Enhancement.git
 cd SBYEC-Website-Enhancement
 
-# 2. Start local WordPress environment
-# (If using XAMPP, ensure Apache & MySQL are running)
-# Visit: http://localhost/phpmyadmin
+# 2. Obtain previous team's WordPress package and database
+#    (Typically shared by client as .zip and .sql files)
+#    Example:
+#    - wordpress_files.zip
+#    - sbyec_db.sql
 
-# 3. Create a new database
-CREATE DATABASE sbyec_db;
+# 3. Restore the WordPress files
+unzip wordpress_files.zip -d /path/to/xampp/htdocs/sbyec
 
-# 4. Move project files into your WordPress /htdocs directory
-cp -r ./code/* /path/to/xampp/htdocs/sbyec
+# 4. Import the previous database
+#    Use phpMyAdmin or MySQL CLI:
+mysql -u root -p
+> CREATE DATABASE sbyec_db;
+> USE sbyec_db;
+> SOURCE /path/to/sbyec_db.sql;
 
-# 5. Open WordPress setup in browser
-http://localhost/sbyec
+# 5. Configure database connection
+Edit /sbyec/wp-config.php:
+define('DB_NAME', 'sbyec_db');
+define('DB_USER', 'root');
+define('DB_PASSWORD', '');
 
-# 6. Configure wp-config.php to match your database credentials
-DB_NAME = 'sbyec_db'
-DB_USER = 'root'
-DB_PASSWORD = ''
+# 6. Start the local environment
+# For XAMPP users:
+# - Start Apache and MySQL
+# - Open browser: http://localhost/sbyec
 
-# 7. Install required plugins
-# (through WordPress dashboard → Plugins → Add New)
-- The Events Calendar
-- WPForms
-- Facebook Page Plugin
-- Zeffy Integration
+# 7. Verify plugins are active
+# WordPress Dashboard → Plugins → Ensure Events Calendar, WPForms, Zeffy are active.
 
-# 8. Import seed data (if applicable)
-Navigate to Tools → Import → WordPress → Upload `/data/seed_content.xml`
-
-# 9. Activate theme and plugins
-Appearance → Themes → Activate "SBYEC-Enhanced"
-Plugins → Activate All
+# 8. (Optional) Import seed content if needed
+# Navigate to Tools → Import → WordPress → Upload `seed_content.xml`
