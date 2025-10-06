@@ -17,8 +17,6 @@ Key goals include:
 All development work builds upon the **existing WordPress database, content, and structure** inherited from the previous project team.
 
 
-
-
 ### Add-ons
 
 | Plugin / Add-on | Purpose |
@@ -50,6 +48,9 @@ All development work builds upon the **existing WordPress database, content, and
 - Added a **“Book Lesson”** button (redirects to contact page).  
 - Added a **chatbot** for basic user interaction.
 
+## Project Documents
+
+- [Project Assignment 1](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/Assignment%20Template.pdf)  
 
 ## Sprint 2 – Upcoming Plans
 - Fully implement the **calendar with booking and payment** features.  
@@ -65,3 +66,4 @@ All development work builds upon the **existing WordPress database, content, and
 
 ## Notes
 This project is built on WordPress and focuses on improving usability, accessibility, and ease of maintenance for non-technical staff.
+
