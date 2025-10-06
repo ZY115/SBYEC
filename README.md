@@ -16,12 +16,10 @@ Key goals include:
 
 All development work builds upon the **existing WordPress database, content, and structure** inherited from the previous project team.
 
----
 
 
 
 ### Add-ons
-Since the system runs on WordPress, these plugins (not Ruby gems) are essential:
 
 | Plugin / Add-on | Purpose |
 |------------------|----------|
@@ -31,3 +29,4 @@ Since the system runs on WordPress, these plugins (not Ruby gems) are essential:
 | **WPForms** | Manages contact form submissions. |
 | **AI Chatbot (optional)** | Provides automated FAQ responses. |
 | **Yoast SEO** | SEO optimization for site visibility. |
+
