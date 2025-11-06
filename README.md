@@ -129,7 +129,7 @@ With most mandatory tasks completed, **Sprint 3** will focus on:
   Guide for configuring and sending newsletters using the MailPoet plugin.
   
 You can watch our Sprint 2 presentation here:  
-- [Watch on YouTube](https://youtu.be/o2BDJz9PQ88)
+- [Watch on YouTube](https://youtu.be/F20qeLysisg)
 
 
 ## Team Members
@@ -140,6 +140,7 @@ You can watch our Sprint 2 presentation here:
 
 ## Notes
 This project is built on WordPress and focuses on improving usability, accessibility, and ease of maintenance for non-technical staff.
+
 
 
 
