@@ -51,7 +51,7 @@ All development work builds upon the **existing WordPress database, content, and
 - Added a **“Book Lesson”** button (redirects to contact page).  
 - Added a **chatbot** for basic user interaction.
 
-## Project Documents
+### Project Documents
 
 - [Project Assignment 1](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/Assignment%20Template.pdf)  
 - [Functional Requirements](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/Functional%20Requirements.pdf)
@@ -59,11 +59,13 @@ All development work builds upon the **existing WordPress database, content, and
 - [Meeting Minutes](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/Meeting%20Minutes.pdf)
 - [Project Description Team 19](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/Project_Description_team19.pdf)
 
-## Sprint 1 Demo
+### Sprint 1 Demo
 You can watch our Sprint 1 presentation here:  
 [Watch on YouTube](https://youtu.be/OGq5JewZOqw)
 
-## Sprint 2 – Upcoming Plans
+
+
+### Sprint 2 – Upcoming Plans
 - Fully implement the **calendar with booking and payment** features.  
 - **Update team information** based on client feedback.  
 - Develop and deploy a **custom chatbot** tailored to SBYEC’s needs.
@@ -102,7 +104,7 @@ With most mandatory tasks completed, **Sprint 3** will focus on:
 
 ---
 
-### 📄 Sprint 2 Deliverables
+### Sprint 2 Deliverables
 - [Sprint 2 Report – In Progress](#) *(placeholder)*  
 - [Tutorial Documents – How to Edit Events & Team Members](#) *(placeholder)*  
 
@@ -118,6 +120,7 @@ You can watch our Sprint 2 presentation here:
 
 ## Notes
 This project is built on WordPress and focuses on improving usability, accessibility, and ease of maintenance for non-technical staff.
+
 
 
 
