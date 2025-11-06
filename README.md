@@ -119,6 +119,15 @@ With most mandatory tasks completed, **Sprint 3** will focus on:
   Added II.6. *Standards and Compliance*  
   Added reference numbers within the main text
 
+- [Client Tutorial – Add New Member](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/ADD%20NEW%20MEMBER.pdf)  
+  Step-by-step guide for adding a new team member through the WordPress backend.
+
+- [Client Tutorial – Edit Members](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/Edit%20members.pdf)  
+  Instructions for modifying or removing existing team member profiles.
+
+- [Client Tutorial – MailPoet Newsletter Setup](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/MailPoet.pdf)  
+  Guide for configuring and sending newsletters using the MailPoet plugin.
+  
 You can watch our Sprint 2 presentation here:  
 - [Watch on YouTube](https://youtu.be/o2BDJz9PQ88)
 
@@ -131,6 +140,7 @@ You can watch our Sprint 2 presentation here:
 
 ## Notes
 This project is built on WordPress and focuses on improving usability, accessibility, and ease of maintenance for non-technical staff.
+
 
 
 
