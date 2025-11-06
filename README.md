@@ -105,11 +105,21 @@ With most mandatory tasks completed, **Sprint 3** will focus on:
 ---
 
 ### Sprint 2 Deliverables
-- [Sprint 2 Report – In Progress](#) *(placeholder)*  
-- [Tutorial Documents – How to Edit Events & Team Members](#) *(placeholder)*  
+- [Sprint 2 Report – Solution Approach](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/Solution_Approach.pdf)  
+  **Modifications:**  
+  Added Section VI. *Constraints and Trade-offs*  
+  Added Section VII. *Standards and Constraints Verification/Testing*  
+  Added reference numbers in the main text  
+- [Tutorial Documents – Project Requirements and Specifications](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/Project_Description_team19.pdf)  
+  **Modifications:**  
+  II.2. Added validation notes  
+  II.3. Added UC number  
+  II.5. Replaced UC number and added *Related NFR*  
+  Added II.6. *Standards and Compliance*  
+  Added reference numbers within the main text
 
 You can watch our Sprint 2 presentation here:  
-[Watch on YouTube](https://youtu.be/o2BDJz9PQ88)
+- [Watch on YouTube](https://youtu.be/o2BDJz9PQ88)
 
 
 ## Team Members
@@ -120,6 +130,7 @@ You can watch our Sprint 2 presentation here:
 
 ## Notes
 This project is built on WordPress and focuses on improving usability, accessibility, and ease of maintenance for non-technical staff.
+
 
 
 
