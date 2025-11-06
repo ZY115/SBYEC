@@ -68,6 +68,47 @@ You can watch our Sprint 1 presentation here:
 - **Update team information** based on client feedback.  
 - Develop and deploy a **custom chatbot** tailored to SBYEC’s needs.
 
+## Sprint 2 – Progress Update
+
+### Overview
+During **Sprint 2**, our main focus was to complete all of the client’s required features and improve the website’s usability for non-technical staff.  
+We prioritized stability and client-driven changes over new experimental features to ensure the website can be easily maintained and updated.
+
+### Key Improvements
+| Area | Description |
+|-------|--------------|
+| **Event Calendar** | Replaced the outdated static calendar with a **dynamic event list** powered by *The Events Calendar* plugin. Each event now includes images, description, date, time, ticket price, organizer, phone, email, and address. Events can be easily created or edited through the WordPress backend. |
+| **Lesson Pages** | Updated **Rising Stars**, **Private Lessons**, and **Group Lessons** pages with richer visual content, including sample photos and embedded YouTube videos. Added test event lists for demonstration purposes. |
+| **Equine Boarding & Mission Pages** | Added more photos and short videos to enhance user trust and visual appeal. These demonstrate the organization’s professional care for horses and its community mission. |
+| **Client Tutorials** | Created detailed step-by-step tutorials (with screenshots) to teach SBYEC staff how to: 1) add new events, 2) edit existing events, and 3) update team members. These guides ensure long-term site maintainability. |
+| **Content Structure** | Retained legacy items such as “Scholarships,” “Login,” and “Sign Up” until further client confirmation. Added a separate **All Events** page instead of replacing old content to avoid interrupting live site operations. |
+| **Backend Optimization** | Simplified event-editing workflow with intuitive date/time selectors, organizer fields, and category tags. Ensured that all forms remain HTTPS-secured. |
+
+### Challenges
+Communication with the client remained the main challenge.  
+Feedback on Sprint 1 changes arrived slowly, which delayed some planned updates and limited new content uploads (photos, videos, and course descriptions).  
+To avoid disrupting the live site, all structural changes were made cautiously and only after receiving approval.
+
+### Reflections
+Although some media content is still missing, the overall direction and design are now aligned with the client’s vision.  
+The new event list and improved page visuals significantly enhance usability and site freshness.  
+Once the client provides updated course materials, the website can be quickly finalized with minimal additional work.
+
+### Next Steps (Sprint 3 Preview)
+With most mandatory tasks completed, **Sprint 3** will focus on:  
+- Implementing the **custom AI chatbot** and integrating it into the website.  
+- Finalizing all client tutorial materials.  
+- Uploading final demo videos and documentation.
+
+---
+
+### 📄 Sprint 2 Deliverables
+- [Sprint 2 Report – In Progress](#) *(placeholder)*  
+- [Tutorial Documents – How to Edit Events & Team Members](#) *(placeholder)*  
+
+You can watch our Sprint 2 presentation here:  
+[Watch on YouTube](https://youtu.be/o2BDJz9PQ88)
+
 
 ## Team Members
 - **Yuhang Zhang** – Team Leader  
@@ -77,6 +118,7 @@ You can watch our Sprint 1 presentation here:
 
 ## Notes
 This project is built on WordPress and focuses on improving usability, accessibility, and ease of maintenance for non-technical staff.
+
 
 
 
