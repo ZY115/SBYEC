@@ -111,7 +111,7 @@ With most mandatory tasks completed, **Sprint 3** will focus on:
   Added Section VII. *Standards and Constraints Verification/Testing*  
   Added reference numbers in the main text
   
-- [Project Requirements and Specifications](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/Project_Description_team19.pdf)  
+- [Project Requirements and Specifications](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/Project%20Requirements%20and%20Specifications_team19.pdf)  
   **Modifications:**  
   II.2. Added validation notes  
   II.3. Added UC number  
@@ -140,6 +140,7 @@ You can watch our Sprint 2 presentation here:
 
 ## Notes
 This project is built on WordPress and focuses on improving usability, accessibility, and ease of maintenance for non-technical staff.
+
 
 
 
