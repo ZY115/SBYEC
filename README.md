@@ -132,6 +132,98 @@ You can watch our Sprint 2 presentation here:
 - [Watch on YouTube](https://youtu.be/F20qeLysisg)
 
 
+## Sprint 3 – AI Chatbot Development
+
+### Overview
+During Sprint 3, our primary focus was the development of a fully functional, automated **AI Chatbot** tailored to SBYEC’s needs.  
+Unlike traditional FAQ tools, this chatbot is built on a **Retrieval-Augmented Generation (RAG)** architecture and stays synchronized with the official SBYEC website without requiring any manual updates from staff.  
+
+This sprint represents the most technically significant milestone of the entire project and lays the foundation for a long-term, maintenance-free intelligent assistant for SBYEC.
+
+---
+
+### Major Updates
+
+| Area | Description |
+|-------|--------------|
+| **Automated Web Crawler** | Built a BeautifulSoup-based crawler that extracts content from 15 key SBYEC pages, including Events, Lessons, Programs, Services, and About. Automatically parses titles, text, footer information (address, phone, email), and removes irrelevant navigation elements. Produces a unified 22KB structured content file. |
+| **Text Chunking & Embeddings** | Implemented 500-character text chunks with 150-character overlap using LangChain’s `RecursiveCharacterTextSplitter`. Generated 384-dimensional embeddings using the HuggingFace `all-MiniLM-L6-v2` model for efficient semantic retrieval. |
+| **Vector Database (ChromaDB)** | Designed a persistent local vector store that indexes all content chunks. The chatbot retrieves the top-k relevant context entries (default k=10) for every user query. |
+| **RAG Chatbot Engine** | Developed the core chatbot using Ollama’s Llama 3.2 models (1B and 3B variants). Created a custom prompt template that forces the model to rely only on retrieved SBYEC context, preventing hallucinations and ensuring factual answers. |
+| **REST API Integration** | Built a Flask REST API with three endpoints: `/api/chat`, `/api/refresh`, and `/api/status`. Enabled CORS for future WordPress site integration. |
+| **Auto-Refresh System** | Added an optional update checker that automatically refreshes the vector database whenever the website content changes. Also implemented a scheduled updater (daily full crawl and 6-hour events-only crawl). |
+| **Frontend Demo Integration** | Created a JavaScript-based chat widget prototype. During Sprint 3, communication between the website and chatbot was enabled through an HTTPS ngrok tunnel for demonstration purposes. |
+
+---
+
+### Technical Architecture
+
+```text
+sbyec.org (15 pages)
+        │
+        ▼
+Web Crawler (BeautifulSoup)
+        │
+        ▼
+data/sbyec_website_content.txt
+        │
+        ├── Chunking (500 chars, 150 overlap)
+        └── Embeddings (MiniLM-L6-v2)
+        ▼
+ChromaDB (Vector Database)
+        │
+        └── Top-k similarity retrieval (k = 10)
+        ▼
+RAG Chatbot Engine (Ollama Llama 3.2)
+        │
+        └── Final Answer Generation
+        ▼
+Flask REST API
+        │
+        └── WordPress Chat Widget Integration
+```
+
+---
+
+### Key Design Decisions
+
+- **100% automation:** Eliminates the need for SBYEC staff to manually update chatbot content.  
+- **Lightweight and free:** Uses small open-source LLMs (1B) compatible with free-tier hosting.  
+- **Scalable:** Can switch to a larger 3B model for higher accuracy without changing system structure.  
+- **Safe and controlled:** Custom prompt rules ensure the chatbot only uses verified SBYEC content.  
+- **Flexible integration:** WordPress frontend communicates with a simple JSON-based API.  
+
+---
+
+### Challenges
+
+- Ensuring footer information (address, phone, email) was correctly extracted and preserved required redesigning the crawler’s parsing logic.  
+- Balancing accuracy and resource usage: the 1B model fits within free hosting limits but needed tuning of chunk size, overlap, and retrieval parameters to reach high accuracy.  
+- Integrating local development with a real website required secure tunneling through ngrok during the prototype phase.  
+
+---
+
+### Reflections
+
+Sprint 3 successfully delivered a full, end-to-end **automated RAG chatbot system** that operates reliably on real SBYEC content.  
+The system demonstrates strong performance in answering questions about contact information, programs, services, and events.  
+This sprint sets up all necessary infrastructure for final deployment and production integration in the next phase.
+
+---
+
+### Next Steps (Sprint 4 Preview)
+
+- Move the chatbot backend from local development to a **cloud deployment** (Railway, Render, or VPS).  
+- Replace the temporary ngrok setup with a permanent HTTPS API endpoint.  
+- Build a polished WordPress chat widget with error handling and optimized UI.  
+- Improve retrieval accuracy for events and team member details.  
+- Finalize documentation and prepare training materials for SBYEC staff.  
+
+### Sprint 3 Deliverables
+You can watch our Final presentation here(Include Sprint 3):  
+- [Watch on YouTube](https://youtu.be/6_CssNaEQqY)
+
+
 ## Team Members
 - **Yuhang Zhang** – Team Leader  
 - **Richard Shen** – Developer
@@ -140,6 +232,7 @@ You can watch our Sprint 2 presentation here:
 
 ## Notes
 This project is built on WordPress and focuses on improving usability, accessibility, and ease of maintenance for non-technical staff.
+
 
 
 
