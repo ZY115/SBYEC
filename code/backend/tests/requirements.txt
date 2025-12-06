@@ -1,0 +1,30 @@
+# Basic dependencies for starting the chatbot project
+# Install with: pip3 install -r requirements.txt
+
+# Core framework for building RAG chatbots
+langchain==0.1.0
+langchain-community==0.0.10
+
+# Vector database for storing website content
+chromadb==0.4.22
+
+# Embedding model to convert text to vectors
+sentence-transformers==2.3.1
+
+# Ollama integration (we'll install Ollama separately)
+ollama==0.1.6
+
+# Web crawling dependencies
+beautifulsoup4==4.12.2
+requests==2.31.0
+lxml==4.9.3
+
+# Web API dependencies
+flask==3.0.0
+flask-cors==4.0.0
+
+# Scheduling and automation
+schedule==1.2.0
+
+# Utilities
+python-dotenv==1.0.0
