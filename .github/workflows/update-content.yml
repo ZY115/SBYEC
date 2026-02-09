@@ -2,8 +2,9 @@ name: Daily Content Update
 
 on:
   schedule:
+    # Run daily at 6:00 AM UTC (10:00 PM PST)
     - cron: '0 6 * * *'
-  workflow_dispatch:
+  workflow_dispatch:  # Allow manual trigger from GitHub UI
 
 jobs:
   crawl-and-update:
@@ -34,13 +35,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run website crawler
-        run: python -c "
-          import sys;
-          sys.path.insert(0, 'code/backend/src');
-          from website_crawler import SBYECWebCrawler;
-          crawler = SBYECWebCrawler(output_dir='data');
-          crawler.crawl_all()
-          "
+        run: python -c "import sys; sys.path.insert(0, 'code/backend/src'); from website_crawler import SBYECWebCrawler; crawler = SBYECWebCrawler(output_dir='data'); crawler.crawl_all()"
 
       - name: Build FAISS index
         run: python code/backend/src/build_index.py
