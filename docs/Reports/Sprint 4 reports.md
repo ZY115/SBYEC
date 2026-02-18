@@ -1,6 +1,10 @@
 # Sprint 4 Report (Dates from 1/15 to 2/15)
 
 ## [YouTube link of Sprint 4 Video](https://youtu.be/b033JsfVcbE)
+<p align="center">
+  <img src="https://github.com/ZY115/SBYEC/blob/main/docs/Reports/Chatbot%20demo%201.png" width="45%"/>
+  <img src="https://github.com/ZY115/SBYEC/blob/main/docs/Reports/Chatbot%20demo%202.png" width="45%"/>
+</p>
 
 ## What's New
  * Deployed fully automated SBYEC chatbot to Hugging Face Spaces (24/7 public access)
