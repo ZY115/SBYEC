@@ -223,6 +223,166 @@ This sprint sets up all necessary infrastructure for final deployment and produc
 You can watch our Final presentation here(Include Sprint 3):  
 - [Watch on YouTube](https://youtu.be/6_CssNaEQqY)
 
+---
+
+# Sprint 4 – Cloud Deployment & Production Automation
+
+## Overview
+
+During Sprint 4, our primary focus was transitioning the AI Chatbot from a local prototype environment into a fully cloud-deployed, production-ready system.
+
+While Sprint 3 successfully delivered a complete RAG chatbot architecture running locally with Ollama, Sprint 4 represents a major architectural evolution:
+
+The chatbot now runs entirely in the cloud, operates 24/7 without any local machine dependency, and maintains automatic synchronization with the live SBYEC website.
+
+This sprint marks the transformation from a working technical prototype to a stable, automated, zero-maintenance deployment infrastructure suitable for long-term real-world use.
+
+---
+
+## Major Updates
+
+| Area | Description |
+|------|------------|
+| **Cloud Hosting Migration** | Migrated backend from local Flask + Ollama runtime to Hugging Face Spaces (free tier, 2GB RAM). The chatbot now runs persistently in the cloud with a public URL. |
+| **LLM Provider Upgrade (Groq 70B)** | Replaced local Llama 3.2 (1B/3B) with Groq’s hosted Llama 3.3 70B model via API. Achieved dramatically improved reasoning quality, coherence, and response structure. |
+| **FAISS Persistent Index** | Switched from ChromaDB to a pre-built FAISS vector index stored in the repository. Reduced cold start time from database rebuild to ~1 second index load. |
+| **Tiered Retrieval System** | Implemented a two-layer response system: pattern-based extraction for contact queries (no API call), and LLM invocation only when synthesis is required. |
+| **GitHub Actions Automation Pipeline** | Built a fully automated daily workflow that crawls all 15 SBYEC pages, regenerates embeddings and FAISS index, commits updates, and triggers automatic Hugging Face redeployment. |
+| **Production Deployment Stability** | Eliminated ngrok dependency and replaced temporary HTTPS tunneling with permanent cloud endpoint architecture. |
+| **Scalable API Integration** | Prepared the system for iframe embedding or direct API-based integration into WordPress frontend. |
+
+---
+
+## Technical Architecture
+
+```
+sbyec.org (15 pages)
+│
+▼
+Web Crawler
+│
+▼
+data/sbyec_website_content.txt
+│
+├── Chunking
+└── Sentence-Transformer Embeddings
+▼
+FAISS Vector Index (Persisted)
+│
+▼
+Semantic Retrieval
+│
+├── Tier 1: Pattern Extraction (No API Call)
+└── Tier 2: LLM Query (Groq 70B)
+▼
+Groq Llama 3.3 70B API
+▼
+Hugging Face Spaces Deployment
+▼
+Public Chat Endpoint (24/7)
+```
+
+---
+
+## Key Improvements Over Sprint 3
+
+### Eliminated local dependency
+Sprint 3 required Ollama running continuously on a local machine.  
+Sprint 4 removes all local runtime requirements. The system now operates entirely in the cloud.
+
+### Model capability leap
+Sprint 3 used Llama 3.2 (1B/3B), constrained by memory limitations.  
+Sprint 4 uses Llama 3.3 70B via Groq — approximately 70× larger — resulting in significantly stronger contextual reasoning and answer fluency.
+
+### Cold-start optimization
+Sprint 3 rebuilt the vector database on startup.  
+Sprint 4 loads a pre-built FAISS index instantly, improving reliability and startup speed.
+
+### Fully automated content synchronization
+Sprint 3 required manual refresh or scheduled local scripts.  
+Sprint 4 implements a complete crawl → embed → index → deploy pipeline through GitHub Actions, requiring zero manual intervention.
+
+### API usage efficiency
+Tiered retrieval reduces unnecessary LLM calls, preserving free-tier API quota while maintaining accuracy.
+
+---
+
+## Capacity
+
+With Groq’s free-tier limits:
+
+- ~14,400 LLM-powered queries per day  
+- ~30 requests per minute  
+- Unlimited contact-information queries (handled without API calls)  
+
+For a community organization website like SBYEC, this capacity is more than sufficient and provides significant scalability headroom.
+
+---
+
+## Cost
+
+The entire deployment operates at zero cost:
+
+- Hugging Face Spaces (free tier)  
+- Groq API (free tier)  
+- GitHub Actions (free for public repos)  
+- Sentence-transformer embeddings (open-source, CPU-based)  
+
+No paid infrastructure or persistent server hosting is required.
+
+---
+
+## Challenges
+
+- Migrating from a local LLM runtime to a remote API required redesigning the prompt and request pipeline.
+- Gemini API instability forced evaluation and comparison of multiple providers before selecting Groq.
+- Free-tier constraints required careful API call budgeting and optimization.
+- Ensuring that automated GitHub Actions correctly triggered Hugging Face redeployment required CI/CD debugging and workflow refinement.
+
+---
+
+## Reflections
+
+Sprint 4 represents a major architectural milestone in the project lifecycle.
+
+Sprint 3 proved the chatbot concept.  
+Sprint 4 proves the chatbot can operate reliably in a real-world, production-style deployment environment.
+
+The system is now:
+
+- Cloud-native  
+- Fully automated  
+- Scalable  
+- Zero-cost  
+- Maintenance-free  
+
+This sprint elevates the chatbot from a technical demo to a sustainable intelligent assistant infrastructure for SBYEC.
+
+---
+
+## Next Steps (Future Enhancements)
+
+- Implement conversation memory for multi-turn contextual dialogue  
+- Add analytics dashboard for query tracking  
+- Improve event-specific retrieval precision  
+- Add fallback logic for API outage scenarios  
+- Optimize UI integration into final WordPress theme  
+
+---
+
+## Sprint 4 Deliverables
+
+You can watch our Sprint 4 presentation here:
+
+[YouTube link of Sprint 4 Video](https://youtu.be/b033JsfVcbE)
+
+
+Separate Report and Code Details:
+
+[**Project Repository**](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/Sprint%204%20reports.md?plain=1)
+
+
+
 
 ## Team Members
 - **Yuhang Zhang** – Team Leader  
@@ -232,6 +392,7 @@ You can watch our Final presentation here(Include Sprint 3):
 
 ## Notes
 This project is built on WordPress and focuses on improving usability, accessibility, and ease of maintenance for non-technical staff.
+
 
 
 
