@@ -59,8 +59,9 @@ jobs:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           git clone https://user:$HF_TOKEN@huggingface.co/spaces/${{ vars.HF_SPACE_ID }} hf_space
-          cp -r data/ hf_space/data/
-          cp -r faiss_index/ hf_space/faiss_index/
+          rm -rf hf_space/data hf_space/faiss_index
+          cp -r data hf_space/data
+          cp -r faiss_index hf_space/faiss_index
           cd hf_space
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
