@@ -1,11 +1,11 @@
-SBYEC Website Content - Last Crawled: 2026-03-05 07:05:12
+SBYEC Website Content - Last Crawled: 2026-03-06 07:03:26
 ======================================================================
 
 
 ======================================================================
 PAGE: Silver Buckle Youth Equestrian Center
 URL: https://sbyec.org/
-LAST UPDATED: 2026-03-05 07:04:35
+LAST UPDATED: 2026-03-06 07:02:53
 ======================================================================
 
 ADDRESS: 11611 NE 152nd Avenue, Brush Prairie, WA 98606
@@ -49,7 +49,7 @@ Instagram
 ======================================================================
 PAGE: Events – Silver Buckle Youth Equestrian Center
 URL: https://sbyec.org/events/
-LAST UPDATED: 2026-03-05 07:04:38
+LAST UPDATED: 2026-03-06 07:02:56
 ======================================================================
 
 ADDRESS: 11611 NE 152nd Avenue, Brush Prairie, WA 98606
@@ -108,7 +108,7 @@ Instagram
 ======================================================================
 PAGE: Riding Lessons – Silver Buckle Youth Equestrian Center
 URL: https://sbyec.org/riding-lessons/
-LAST UPDATED: 2026-03-05 07:04:42
+LAST UPDATED: 2026-03-06 07:02:57
 ======================================================================
 
 ADDRESS: 11611 NE 152nd Avenue, Brush Prairie, WA 98606
@@ -154,7 +154,7 @@ Instagram
 ======================================================================
 PAGE: Books at the Buckle – Silver Buckle Youth Equestrian Center
 URL: https://sbyec.org/programs/books-at-the-buckle/
-LAST UPDATED: 2026-03-05 07:04:47
+LAST UPDATED: 2026-03-06 07:03:00
 ======================================================================
 
 ADDRESS: 11611 NE 152nd Avenue, Brush Prairie, WA 98606
@@ -187,7 +187,7 @@ Instagram
 ======================================================================
 PAGE: Camps – Silver Buckle Youth Equestrian Center
 URL: https://sbyec.org/programs/camps/
-LAST UPDATED: 2026-03-05 07:04:50
+LAST UPDATED: 2026-03-06 07:03:03
 ======================================================================
 
 ADDRESS: 11611 NE 152nd Avenue, Brush Prairie, WA 98606
@@ -224,7 +224,7 @@ Instagram
 ======================================================================
 PAGE: Equine Encounters – Silver Buckle Youth Equestrian Center
 URL: https://sbyec.org/programs/equine-encounters/
-LAST UPDATED: 2026-03-05 07:04:53
+LAST UPDATED: 2026-03-06 07:03:05
 ======================================================================
 
 ADDRESS: 11611 NE 152nd Avenue, Brush Prairie, WA 98606
@@ -262,7 +262,7 @@ Instagram
 ======================================================================
 PAGE: Volunteer – Silver Buckle Youth Equestrian Center
 URL: https://sbyec.org/programs/volunteer/
-LAST UPDATED: 2026-03-05 07:04:57
+LAST UPDATED: 2026-03-06 07:03:09
 ======================================================================
 
 ADDRESS: 11611 NE 152nd Avenue, Brush Prairie, WA 98606
@@ -309,7 +309,7 @@ Instagram
 ======================================================================
 PAGE: Facility Rental – Silver Buckle Youth Equestrian Center
 URL: https://sbyec.org/services/facility-rental/
-LAST UPDATED: 2026-03-05 07:05:00
+LAST UPDATED: 2026-03-06 07:03:12
 ======================================================================
 
 ADDRESS: 11611 NE 152nd Avenue, Brush Prairie, WA 98606
@@ -346,7 +346,7 @@ Instagram
 ======================================================================
 PAGE: Equine Boarding – Silver Buckle Youth Equestrian Center
 URL: https://sbyec.org/services/equine-boarding/
-LAST UPDATED: 2026-03-05 07:05:02
+LAST UPDATED: 2026-03-06 07:03:16
 ======================================================================
 
 ADDRESS: 11611 NE 152nd Avenue, Brush Prairie, WA 98606
@@ -382,7 +382,7 @@ Instagram
 ======================================================================
 PAGE: Our Mission – Silver Buckle Youth Equestrian Center
 URL: https://sbyec.org/about/our-mission/
-LAST UPDATED: 2026-03-05 07:05:05
+LAST UPDATED: 2026-03-06 07:03:19
 ======================================================================
 
 ADDRESS: 11611 NE 152nd Avenue, Brush Prairie, WA 98606
@@ -424,7 +424,7 @@ Instagram
 ======================================================================
 PAGE: Meet Our Team – Silver Buckle Youth Equestrian Center
 URL: https://sbyec.org/about/meet-our-team/
-LAST UPDATED: 2026-03-05 07:05:07
+LAST UPDATED: 2026-03-06 07:03:22
 ======================================================================
 
 ADDRESS: 11611 NE 152nd Avenue, Brush Prairie, WA 98606
@@ -440,9 +440,9 @@ Operations Tech
 Ken Ayers
 Facilities
 Sarah Long
-Tuesday & Saturday Instructor
+Riding Instructor
 Andrea Johnson
-Monday & Wednesday Instructor
+Riding Instructor
 Jessica Overbagh
 Herd Manager, Lesson & Instructor Development
 Board Members
@@ -455,7 +455,7 @@ Treasurer
 After several years as Board Treasurer, it remains a privilege to manage the funds in this small non-profit organization that consistently makes value-based decisions, thinking first about what is …
 Learn More
 Eileen Vernon
-Secretary
+Secretary, Vice President
 Having recently joined the Board of the Silver Buckle Youth Equestrian Center, I look forward to being able to use my experience advising on corporate governance matters and strategic business …
 Learn More
 Peggy Neikirk
@@ -487,7 +487,7 @@ Instagram
 ======================================================================
 PAGE: Contact Us – Silver Buckle Youth Equestrian Center
 URL: https://sbyec.org/about/contact-us/
-LAST UPDATED: 2026-03-05 07:05:11
+LAST UPDATED: 2026-03-06 07:03:25
 ======================================================================
 
 ADDRESS: 11611 NE 152nd Avenue, Brush Prairie, WA 98606
