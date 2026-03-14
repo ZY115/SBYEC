@@ -21,15 +21,6 @@ At this time, there are no unfinished issues or user stories carried over from t
 Here are links to the issues that we completed in this sprint:
 
  * https://github.com/users/ZY115/projects/2
- * URL of issue 2
- * URL of issue n
- 
- ## Incomplete Issues/User Stories
- Here are links to issues we worked on but did not complete in this sprint:
- 
- * URL of issue 1 <<One sentence explanation of why issue was not completed>>
- * URL of issue 2 <<One sentence explanation of why issue was not completed>>
- * URL of issue n <<One sentence explanation of why issue was not completed>>
 
 
 ## Code Files for Review
