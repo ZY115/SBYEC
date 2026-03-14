@@ -26,7 +26,7 @@ Here are links to the issues that we completed in this sprint:
 ## Code Files for Review
 Please review the following code files, which were actively developed during this sprint, for quality:
  * [chatbot-Appearance](https://github.com/ZY115/SBYEC/tree/main/code/frontend/src)
- * [chatbot-Interface](https://github.com/ZY115/SBYEC/tree/main/code/frontend/src)
+ * [chatbot-Interface](https://github.com/ZY115/SBYEC/blob/main/app.py)
  * [Books at the Buckle page.pdf](https://github.com/ZY115/SBYEC/tree/main/docs/Reports)
  * [videos screenshot.png](https://github.com/ZY115/SBYEC/tree/main/docs/Reports)
  
