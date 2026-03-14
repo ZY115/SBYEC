@@ -37,13 +37,14 @@ def is_complex_query(question: str) -> bool:
 def extract_answer_from_chunks(question: str, chunks: list[str]) -> str | None:
     """
     Try to answer from retrieved chunks using rules.
-    Returns a formatted answer string, or None if LLM is needed.
+    Only handles cases where a direct extraction is clearly correct.
+    Returns None to let the LLM handle everything else.
     """
     q = question.lower()
-    combined = "\n\n".join(chunks[:5])  # top 5 chunks
+    combined = "\n\n".join(chunks[:5])
 
-    # --- Contact info ---
-    if any(w in q for w in ["phone", "call", "number", "contact", "reach"]):
+    # --- Contact: phone ---
+    if any(w in q for w in ["phone", "call", "number"]):
         phones = CONTACT_PATTERNS["phone"].findall(combined)
         emails = CONTACT_PATTERNS["email"].findall(combined)
         if phones or emails:
@@ -55,64 +56,22 @@ def extract_answer_from_chunks(question: str, chunks: list[str]) -> str | None:
                 parts.append(f"Email: {unique_emails[0]}")
             return "\n".join(parts)
 
+    # --- Contact: email ---
     if any(w in q for w in ["email", "mail"]):
         emails = CONTACT_PATTERNS["email"].findall(combined)
         if emails:
             unique = list(dict.fromkeys(emails))
             return "Email: " + ", ".join(unique[:3])
 
-    if any(w in q for w in ["address", "location", "where", "located", "directions", "find you"]):
+    # --- Contact: address ---
+    if any(w in q for w in ["address", "located", "directions", "find you"]):
         addrs = CONTACT_PATTERNS["address"].findall(combined)
         if addrs:
             return f"Address: {addrs[0]}"
-        # Fallback: look for known address in text
         if "11611" in combined:
             return "Address: 11611 NE 152nd Avenue, Brush Prairie, WA 98606"
 
-    # --- Events ---
-    if any(w in q for w in ["event", "upcoming", "happening", "schedule", "when"]):
-        # Find event-related chunks and return them directly
-        event_chunks = [c for c in chunks if any(
-            kw in c.lower() for kw in ["event", "upcoming", "peppermint", "halloween", "spring farm", "books at"]
-        )]
-        if event_chunks:
-            return event_chunks[0].strip()
-
-    # --- Pricing ---
-    price_match = re.findall(r"\$\d+(?:\.\d{2})?(?:/\w+)?", combined)
-    if any(w in q for w in ["cost", "price", "how much", "fee", "pricing"]) and price_match:
-        # Return the chunk that contains pricing
-        for chunk in chunks[:5]:
-            if "$" in chunk:
-                return chunk.strip()
-
-    # --- Team / staff ---
-    if any(w in q for w in ["team", "staff", "instructor", "board", "who works"]):
-        team_chunks = [c for c in chunks if any(
-            kw in c for kw in ["Manager", "Instructor", "President", "Treasurer", "Secretary"]
-        )]
-        if team_chunks:
-            return team_chunks[0].strip()
-
-    # --- Hours / lessons ---
-    if any(w in q for w in ["lesson", "riding", "class", "learn to ride"]):
-        lesson_chunks = [c for c in chunks if "lesson" in c.lower() or "riding" in c.lower()]
-        if lesson_chunks:
-            return lesson_chunks[0].strip()
-
-    # --- Programs ---
-    if any(w in q for w in ["program", "camp", "volunteer", "field trip", "books", "encounter"]):
-        for chunk in chunks[:5]:
-            return chunk.strip()
-
-    # --- Generic: if the top chunk has high relevance, return it ---
-    # For simple factual questions, the top retrieved chunk is often sufficient
-    if chunks:
-        top = chunks[0].strip()
-        # Only return directly if the chunk is substantive
-        if len(top) > 50:
-            return top
-
+    # Everything else goes to LLM for a proper synthesized answer
     return None
 
 
@@ -143,7 +102,12 @@ def get_llm_answer(question: str, context: str) -> str:
 
         template = """You are a helpful assistant for the Silver Buckle Youth Equestrian Center (SBYEC).
 Answer based ONLY on the context below. Be direct, friendly, and concise.
-If you can't find the answer, say "For the most up-to-date information, please call (564) 208-1315 or email info@silverbuckleranch.org"
+
+IMPORTANT RULES:
+1. If the context mentions specific upcoming events with dates (e.g. "Critter Club February 22nd"), ALWAYS include them with their exact dates
+2. Look carefully for "Upcoming Events" sections — these are the most important and timely details
+3. Include specific details: names, dates, prices, ages, times when available
+4. If you can't find the answer, say "For the most up-to-date information, please call (564) 208-1315 or email info@silverbuckleranch.org"
 
 Context:
 {context}
@@ -186,7 +150,29 @@ class SBYECChatbot:
         self.retriever = self.vectorstore.as_retriever(
             search_type="similarity", search_kwargs={"k": 10}
         )
+
+        # Keep all chunks for keyword fallback search
+        self.all_chunks = self._load_all_chunks()
         print("Chatbot is ready!")
+
+    def _load_all_chunks(self):
+        """Load all text chunks for keyword search fallback."""
+        chunks = []
+        data_dir = "data"
+        if os.path.exists(data_dir):
+            for filename in sorted(os.listdir(data_dir)):
+                if filename.endswith('.txt'):
+                    with open(os.path.join(data_dir, filename), 'r', encoding='utf-8') as f:
+                        chunks.append(f.read())
+        from langchain.text_splitter import RecursiveCharacterTextSplitter
+        splitter = RecursiveCharacterTextSplitter(
+            chunk_size=500, chunk_overlap=150,
+            separators=["\n\n", "\n", ". ", " ", ""]
+        )
+        all_split = []
+        for doc in chunks:
+            all_split.extend(splitter.split_text(doc))
+        return all_split
 
     def _load_documents(self):
         documents = []
@@ -209,13 +195,43 @@ class SBYECChatbot:
             split_docs.extend(splitter.split_text(doc))
         return split_docs
 
+    def _keyword_search(self, question: str, top_k: int = 3) -> list[str]:
+        """Search all chunks by keyword overlap as a fallback for semantic search."""
+        # Strip punctuation from query words so "events?" matches "events"
+        q_words = set(re.sub(r"[^\w\s]", "", question.lower()).split())
+        # Remove very common stop words that would match too many chunks
+        q_words -= {"a", "an", "the", "is", "are", "do", "does", "what", "how", "any", "you", "your", "we", "our", "i", "my", "to", "for", "of", "in", "at", "on", "and", "or"}
+        scored = []
+        for chunk in self.all_chunks:
+            chunk_lower = chunk.lower()
+            score = sum(1 for w in q_words if w in chunk_lower)
+            # Boost chunks that contain date-like patterns or event keywords
+            if re.search(r"\b(january|february|march|april|may|june|july|august|september|october|november|december)\b", chunk_lower):
+                score += 3
+            if "upcoming" in chunk_lower or "event" in chunk_lower:
+                score += 2
+            if score > 0:
+                scored.append((score, chunk))
+        scored.sort(key=lambda x: x[0], reverse=True)
+        return [chunk for _, chunk in scored[:top_k]]
+
     def ask(self, question: str) -> str:
         if not question.strip():
             return "Please ask a question about SBYEC!"
 
-        # Retrieve relevant chunks
+        # Retrieve relevant chunks via semantic search
         docs = self.retriever.invoke(question)
         chunks = [doc.page_content for doc in docs]
+
+        # For event-related queries, supplement with keyword fallback
+        q_lower = question.lower()
+        event_words = ["event", "upcoming", "coming up", "schedule", "next", "when is", "activities", "happening"]
+        if any(w in q_lower for w in event_words):
+            keyword_chunks = self._keyword_search(question)
+            # Prepend keyword chunks (up to 3) so date-specific info is guaranteed in context
+            existing = set(chunks)
+            prepend = [kc for kc in keyword_chunks if kc not in existing]
+            chunks = prepend + chunks
 
         if not chunks:
             return "For the most up-to-date information, please call (564) 208-1315 or email info@silverbuckleranch.org"
@@ -227,7 +243,7 @@ class SBYECChatbot:
                 return answer
 
         # Tier 2: Fall back to LLM for complex queries
-        context = "\n\n".join(chunks[:5])
+        context = "\n\n".join(chunks[:12])
         return get_llm_answer(question, context)
 
 
@@ -242,17 +258,17 @@ def respond(message, history):
 
 demo = gr.ChatInterface(
     fn=respond,
-    title="SBYEC Chatbot",
+    title="",
     description="Ask me anything about Silver Buckle Youth Equestrian Center!",
     examples=[
-        "Where is SBYEC located?",
-        "What programs do you offer?",
         "What events are coming up?",
+        "What programs do you offer?",
         "How can I contact you?",
     ],
     cache_examples=False,
     theme=gr.themes.Soft(),
+    css="footer { display: none !important; }",
 )
 
 if __name__ == "__main__":
-    demo.launch()
+    demo.launch(show_api=False)
