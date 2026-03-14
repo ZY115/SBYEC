@@ -382,7 +382,121 @@ Separate Report and Code Details:
 [**Project Repository**](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/Sprint%204%20reports.md?plain=1)
 
 
+---
 
+# Sprint 5 – Client Support, Documentation & Final Refinement
+
+## Overview
+
+During Sprint 5, our focus shifted from major backend architecture work to client-facing refinement and long-term maintainability.
+
+After the cloud deployment and automation milestones achieved in Sprint 4, this sprint concentrated on ensuring that the SBYEC team could independently manage the website without ongoing developer support.
+
+Rather than introducing major new technical systems, Sprint 5 emphasized responsiveness to client feedback, completion of requested usability improvements, and delivery of practical documentation and tutorial materials.
+
+The main goal of this sprint was to ensure that all remaining client needs were addressed in a practical and sustainable way. This meant identifying the exact update workflows the client would need in WordPress, testing those workflows, and transforming them into clear documentation and tutorial videos.
+
+---
+
+## Major Updates
+
+| Area | Description |
+|------|------------|
+| **Client-Guided Refinement** | Incorporated direct client feedback and questions into the final round of website support and usability improvements. |
+| **Step-by-Step Manuals** | Created written instructional materials to help the client independently update important website sections without technical assistance. |
+| **Tutorial Video Deliverables** | Produced walkthrough videos covering common content-management tasks requested by the client. |
+| **Meet the Herd Maintenance Guide** | Documented the full workflow for adding new horses, including uploading featured images and entering descriptive content. |
+| **Meet Our Team Formatting Support** | Added guidance for adjusting team-member image sizes and maintaining consistent page formatting. |
+| **Sponsors & Partners Update Guide** | Created materials explaining how to add sponsor logos while preserving spacing and visual consistency. |
+| **Books at the Buckle Update Instructions** | Delivered instructions for updating event images and dates so future announcements can be managed easily by the client. |
+| **Chatbot UI Cleanup** | Refined the chatbot interface to improve readability and create a cleaner user-facing interaction area. |
+
+---
+
+## Work Summary
+
+During this sprint, our team translated the client’s detailed questions and requests into actionable support materials.
+
+We reviewed how several website sections were structured in WordPress, including:
+
+- team member content and image layout 
+- herd page content organization 
+- sponsor logo placement and spacing 
+- event announcement updates for Books at the Buckle 
+
+A major challenge was not technical complexity itself, but determining which update workflows would be realistic for a non-technical client to perform consistently.
+
+To address this, we tested multiple approaches inside the WordPress dashboard and selected the most stable and user-friendly methods. These workflows were then converted into concise manuals and video tutorials so that the client can independently manage future updates.
+
+This sprint strengthened the practical value of the project by reducing reliance on the development team and improving long-term maintainability.
+
+---
+
+## Completion Status
+
+All planned tasks for Sprint 5 were completed successfully.
+
+There are no unfinished user stories or unresolved issues carried over from this sprint. The requested manuals, tutorials, and related refinements were completed, reviewed, and delivered.
+
+---
+
+## Key Outcome
+
+By the end of Sprint 5, the project not only met its technical goals, but also addressed the client’s operational needs.
+
+The website is now supported by:
+
+- clear written documentation 
+- task-specific tutorial videos 
+- refined update workflows 
+- improved client self-sufficiency 
+
+This ensures the final deliverable is not only functional, but also maintainable by the organization after handoff.
+
+---
+
+## Reflections
+
+Sprint 5 highlighted an important lesson in client-centered software development: a successful project is not defined only by technical implementation, but also by how usable and maintainable it is for the end client.
+
+This sprint went well because:
+
+- client communication was clear and productive 
+- requested support materials were completed efficiently 
+- team collaboration allowed documentation, testing, and recording tasks to progress smoothly 
+
+Areas we would continue improving:
+
+- making instructional materials even easier for non-technical users to follow 
+- improving our internal validation process for documentation before final delivery
+
+Overall, Sprint 5 served as the final refinement phase that helped align the project with the client’s real operational needs.
+
+---
+
+## Next Steps
+
+Potential future follow-up work includes:
+
+- gathering client feedback after they begin using the manuals and tutorials independently 
+- expanding documentation if additional website-management tasks arise 
+- making small usability refinements based on real client usage 
+- continuing minor interface polish where needed 
+
+---
+
+## Sprint 5 Deliverables
+
+You can watch our Sprint 5 presentation here:
+
+[YouTube link of Sprint 5 Video](https://youtu.be/mhw-W2AJlnA)
+
+Additional sprint-related materials and references:
+
+- [Project Board / Completed Issues](https://github.com/users/ZY115/projects/2)
+- [Frontend UI Files](https://github.com/ZY115/SBYEC/tree/main/code/frontend/src)
+- [Chatbot Interface Backend](https://github.com/ZY115/SBYEC/blob/main/app.py)
+- [Sprint Documentation Folder](https://github.com/ZY115/SBYEC/tree/main/docs/Reports)
 
 ## Team Members
 - **Yuhang Zhang** – Team Leader  
