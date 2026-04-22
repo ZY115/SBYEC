@@ -21,7 +21,7 @@ Here are links to the work completed in this sprint:
  * Staff tutorial PDFs — [ADD NEW MEMBER.pdf](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/ADD%20NEW%20MEMBER.pdf), [Edit members.pdf](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/Edit%20members.pdf), [MailPoet.pdf](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/MailPoet.pdf), [Books at the Buckle page.pdf](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/Books%20at%20the%20Buckle%20page.pdf), [change position or order.pdf](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/change%20position%20or%20order.pdf)
  * Tutorial video playlist (unlisted YouTube) — https://www.youtube.com/watch?v=nUutb7TemQ8&list=PL7k2t_VNLHXXTMDM3oMTX-YRER4WVLoiR
  * Fix daily content update workflow after Hugging Face Xet storage policy change — [.github/workflows/update-content.yml](https://github.com/ZY115/SBYEC/blob/main/.github/workflows/update-content.yml)
- * Update final project report to reflect sprint 6 changes — [04_FinalReport.md](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/04_FinalReport.md)
+ * Update final project report to reflect sprint 6 changes — [FinalReport.pdf](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/CptS423_Project%20Full_Team_19.pdf)
 
 ## Incomplete Issues/User Stories
 None — all sprint 6 issues were completed.
