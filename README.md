@@ -582,7 +582,7 @@ Additional sprint-related materials and references:
 - [Client Tutorial – MailPoet Newsletter Setup](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/MailPoet.pdf)
 - [Client Tutorial – Books at the Buckle Updates](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/Books%20at%20the%20Buckle%20page.pdf)
 - [Client Tutorial – Change Page Position / Order](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/change%20position%20or%20order.pdf)
-- [Final Project Report](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/04_FinalReport.md)
+- [Final Project Report](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/CptS423_Project%20Full_Team_19.pdf)
 - [Sprint Documentation Folder](https://github.com/ZY115/SBYEC/tree/main/docs/Reports)
 
 ---
