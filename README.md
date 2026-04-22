@@ -498,6 +498,111 @@ Additional sprint-related materials and references:
 - [Chatbot Interface Backend](https://github.com/ZY115/SBYEC/blob/main/app.py)
 - [Sprint Documentation Folder](https://github.com/ZY115/SBYEC/tree/main/docs/Reports)
 
+
+---
+
+# Sprint 6 – Final Handoff & Infrastructure Stabilization
+
+## Overview
+
+Sprint 6 was the project's final sprint, focused on handoff rather than new feature development.
+
+By the end of Sprint 5, all major technical and client-facing deliverables had been completed. The chatbot was already deployed in the cloud, fully automated, and supported by initial tutorial materials. Sprint 6 therefore concentrated on finalizing the client handoff package and ensuring the deployed system would remain stable without any ongoing developer involvement.
+
+Two streams of work defined this sprint: consolidating all tutorial videos into a single access-controlled delivery channel for the client, and resolving an unexpected infrastructure issue caused by a recent Hugging Face platform policy change.
+
+The goal was to leave the client with a complete, self-sufficient, zero-maintenance system that would continue operating correctly after project closure.
+
+---
+
+## Major Updates
+
+| Area | Description |
+|------|------------|
+| **Consolidated Tutorial Playlist** | Merged all Sprint 5 tutorial videos into a single YouTube playlist so the client can access every walkthrough from one link instead of tracking multiple separate videos. |
+| **Unlisted Video Access** | Configured the playlist as **Unlisted**, meaning only people with the direct link can view the videos. The tutorials are not indexed, not searchable, and not publicly visible — while still free to host and easy for the client to share internally. |
+| **Hugging Face Xet Storage Compatibility Fix** | Updated the daily automation pipeline to comply with Hugging Face's new Xet storage policy, which no longer permits binary files (such as `index.faiss`) to be pushed via plain `git push`. |
+| **Migration from `git push` to `huggingface_hub` API** | Replaced the original `git clone` + `git push` deployment step with `huggingface_hub.HfApi.upload_folder()`, which handles Xet storage transparently and uploads both `data/` and `faiss_index/` folders in a single atomic commit. |
+| **Pipeline Simplification** | As a side benefit of the rewrite, the Space now rebuilds **once per day instead of twice**, reducing redundant builds and making daily updates slightly faster and cleaner. |
+| **Final Report Update** | Updated the full project report to reflect all Sprint 6 changes, including the infrastructure fix, tutorial delivery format, and the current state of the deployed system at handoff. |
+
+---
+
+## Work Summary
+
+Most of the sprint was spent on handoff polish. The tutorial videos recorded in Sprint 5 were reviewed, lightly re-edited where needed, and organized into a single unlisted YouTube playlist. The unlisted setting was an intentional choice made in consultation with the client's privacy expectations: the content is effectively private to SBYEC, yet still free to host and trivial to distribute via a shared link.
+
+The more unexpected piece of work was the infrastructure fix. Midway through the sprint we noticed that the daily automated update had stopped succeeding. Investigation revealed that Hugging Face had rolled out a storage-backend change (Xet storage), and binary files like our FAISS index (`index.faiss`) can no longer be pushed to Spaces via the traditional `git push` approach. The original deployment step in `update-content.yml`, which used `git clone` + `git push` to mirror the repository to the Hugging Face Space, was being rejected.
+
+We replaced that step with a call to `huggingface_hub.HfApi.upload_folder()`, which is the new supported path and handles Xet uploads transparently. This restored the daily pipeline, and also allowed us to upload both the crawled text data and the FAISS index in a single commit — reducing the Space from two rebuilds per day to one.
+
+Finally, the project report was updated to reflect the current state of the deployed system, so that the written documentation matches what the client actually has at handoff.
+
+---
+
+## Challenges
+
+- The Hugging Face policy change was not announced loudly on the client-facing documentation, so the failure mode was only surfaced when the daily cron job stopped updating content. This required reading through recent Hugging Face platform release notes to identify Xet storage as the root cause.
+- We had no pre-existing alerting on the automation pipeline, so the breakage was discovered passively rather than detected automatically. While we fixed the underlying issue, this highlighted a monitoring gap that would be worth addressing in any future continuation of the project.
+- Consolidating videos into a single playlist required re-reviewing each tutorial for consistency (intro framing, pacing, resolution) before finalizing the playlist order.
+
+---
+
+## Reflections
+
+Sprint 6 reinforced a lesson that had been quietly building across the project: the hardest part of a production system is not launching it, but keeping it running correctly when the environment around it changes.
+
+The chatbot itself did not break this sprint. The FAISS index did not break. The Groq API did not break. What broke was an external platform's storage policy — something we had no direct control over. Having the pipeline written in a modular way (with the deployment step isolated in a single workflow file) made the fix straightforward once the root cause was identified.
+
+The tutorial consolidation reinforced a different lesson: small client-facing refinements often matter more at handoff than large technical changes. The client does not need to know that we migrated to `upload_folder()` — but they very much appreciate having one link instead of seven.
+
+---
+
+## Next Steps
+
+Since Sprint 6 is the final sprint of the project, there are no planned future sprints. However, potential follow-up work that the client or a future maintainer could pursue includes:
+
+- Setting up a lightweight monitoring alert (email or notification) for any GitHub Actions workflow failures, so future platform changes are caught proactively rather than passively.
+- Expanding the tutorial playlist if the client encounters new maintenance scenarios after handoff.
+- Revisiting the chatbot's answer scope after the client has several months of real usage data to decide whether to enable broader question-answering capabilities.
+
+---
+
+## Sprint 6 Deliverables
+
+You can watch our Sprint 6 presentation and full tutorial series here:
+
+[YouTube Playlist (Unlisted) – Sprint 6 Video & Tutorials](https://www.youtube.com/watch?v=nUutb7TemQ8&list=PL7k2t_VNLHXXTMDM3oMTX-YRER4WVLoiR)
+
+Additional sprint-related materials and references:
+
+- [Updated Automation Workflow (`update-content.yml`)](https://github.com/ZY115/SBYEC/blob/main/.github/workflows/update-content.yml)
+- [Client Tutorial – Add New Member](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/ADD%20NEW%20MEMBER.pdf)
+- [Client Tutorial – Edit Members](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/Edit%20members.pdf)
+- [Client Tutorial – MailPoet Newsletter Setup](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/MailPoet.pdf)
+- [Client Tutorial – Books at the Buckle Updates](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/Books%20at%20the%20Buckle%20page.pdf)
+- [Client Tutorial – Change Page Position / Order](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/change%20position%20or%20order.pdf)
+- [Final Project Report](https://github.com/ZY115/SBYEC/blob/main/docs/Reports/04_FinalReport.md)
+- [Sprint Documentation Folder](https://github.com/ZY115/SBYEC/tree/main/docs/Reports)
+
+---
+
+## Project Summary
+
+Over six sprints, this project evolved from a WordPress-focused website improvement effort into a complete, cloud-deployed AI chatbot system with automated content synchronization and full client handoff documentation.
+
+The final deliverable includes:
+
+- A custom RAG chatbot running 24/7 on Hugging Face Spaces, powered by Groq's Llama 3.3 70B model and a FAISS vector index built from the SBYEC website's own content.
+- A fully automated daily update pipeline (GitHub Actions) that re-crawls the website, rebuilds embeddings, regenerates the FAISS index, and redeploys to Hugging Face — with zero manual intervention.
+- A refined, accessible WordPress website with client-requested content and formatting improvements.
+- A complete tutorial package (written PDFs + unlisted video playlist) enabling SBYEC staff to maintain the website independently.
+- Zero ongoing cost: the entire system runs on free-tier services.
+
+The project is now fully handed off to the client. The deployed system is stable, self-updating, documented, and does not require further developer involvement to continue operating correctly.
+
+
+
 ## Team Members
 - **Yuhang Zhang** – Team Leader  
 - **Richard Shen** – Developer
